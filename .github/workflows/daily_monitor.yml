@@ -1,0 +1,44 @@
+name: 🏏 Virat Kohli Daily Statistics Monitor
+
+on:
+  schedule:
+    # Runs daily at 05:30 AM UTC (11:00 AM IST)
+    - cron: '30 5 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  monitor:
+    name: Run Daily Statistics Monitor
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 📦 Install Production Dependencies
+        run: npm ci
+
+      - name: 🚀 Run Statistics Monitoring Pipeline
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_PASS: ${{ secrets.GMAIL_PASS }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FORCE_EMAIL: ${{ secrets.FORCE_EMAIL }}
+        run: npm start
+
+      - name: 💾 Commit & Push Updated Historical Statistics Baseline
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(data): auto-update virat kohli statistics baseline [skip ci]"
+          file_pattern: "data/virat_kohli_stats.json"
+          commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
