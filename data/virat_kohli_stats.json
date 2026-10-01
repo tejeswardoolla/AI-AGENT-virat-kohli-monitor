@@ -1,7 +1,7 @@
 {
   "player": "Virat Kohli",
   "profile_url": "https://www.cricbuzz.com/profiles/1413/virat-kohli",
-  "last_updated": "2026-09-28T11:54:32.513Z",
+  "last_updated": "2026-10-01T11:45:34.820Z",
   "stats": {
     "test": {
       "matches": 123,
@@ -20,16 +20,16 @@
       "doubleCenturies": 7
     },
     "odi": {
-      "matches": 315,
-      "innings": 303,
-      "runs": 15080,
-      "ballsFaced": 15991,
+      "matches": 316,
+      "innings": 304,
+      "runs": 15109,
+      "ballsFaced": 16010,
       "highestScore": "183",
-      "average": 59.14,
-      "strikeRate": 94.31,
+      "average": 59.02,
+      "strikeRate": 94.38,
       "notOuts": 48,
-      "fours": 1399,
-      "sixes": 181,
+      "fours": 1402,
+      "sixes": 182,
       "ducks": 18,
       "halfCenturies": 79,
       "centuries": 55,
